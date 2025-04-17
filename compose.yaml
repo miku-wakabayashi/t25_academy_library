@@ -1,6 +1,8 @@
 services:
   # データベース
   metateam_academy_mysql:
+    image: metateam_academy_mysql:arm64
+    platform: linux/arm64
     build: ./docker/mysql
     container_name: 'metateam_academy_mysql'
     volumes:
@@ -9,9 +11,11 @@ services:
       - db-store:/var/lib/mysql
     ports:
       - 3306:3306
-
+ 
   # ストレージ
   metateam_academy_minio:
+    image: metateam_academy_minio:arm64
+    platform: linux/arm64
     build: ./docker/minio
     container_name: metateam_academy_minio
     volumes:
@@ -20,9 +24,11 @@ services:
       - "9000:9000"
       - "9001:9001"
     command: ['server', '/export', '--console-address', ':9001']
-
+ 
   # アプリ本体
   metateam_academy_app:
+    image: metateam_academy_app:arm64
+    platform: linux/arm64
     build: ./docker/mt_library
     container_name: metateam_academy_app
     tty: true
