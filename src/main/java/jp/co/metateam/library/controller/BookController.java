@@ -50,5 +50,6 @@ public class BookController {
 
         return "book/add";
         // テストコメント5/2
+        //テストコメントver2.5
     }    
 }
